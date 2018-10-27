@@ -15,7 +15,7 @@ ADD ./mclean.py mclean.py
 RUN python3 mclean.py ./diced
 RUN sstrip -z ./diced
 RUN objdump -s -x ./diced && size ./diced && file ./diced && ls -la .
-RUN upx --best ./diced && ls -la .
+#RUN upx --best ./diced && ls -la .
 FROM scratch
 COPY --from=build /build/diced /diced
 ENV PORT 8000
